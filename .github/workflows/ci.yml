@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  workflow_call:
+
+jobs:
+  phplint:
+    uses: ./.github/workflows/phplint.yml
+
+  phpcs:
+    uses: ./.github/workflows/phpcs.yml
+
+  phpstan:
+    uses: ./.github/workflows/phpstan.yml
+
+  psalm:
+    uses: ./.github/workflows/psalm.yml
+
+  phpunit:
+    uses: ./.github/workflows/phpunit.yml
+
+  coverage:
+    uses: ./.github/workflows/coverage.yml
