@@ -4,16 +4,14 @@ on:
   workflow_call:
 
 jobs:
-  phpcs:
-    name: PHP_CodeSniffer
-
+  run:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
 
       - name: Install dependencies
-        run: composer install --dev --prefer-dist --no-progress --no-suggest
+        run: composer install --prefer-dist --no-progress
 
       - name: Run PHP_CodeSniffer
         uses: chekalsky/phpcs-action@v1
