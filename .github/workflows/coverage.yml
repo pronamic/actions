@@ -1,0 +1,22 @@
+name: Coverage
+
+on:
+  workflow_call:
+
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: composer install --prefer-dist --no-progress
+
+    - name: Run Coverage
+      run: composer run-script coverage
+
+    - name: Codecov
+      uses: codecov/codecov-action@v2
+      with:
+        files: build/logs/clover.xml
