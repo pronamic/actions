@@ -16,14 +16,11 @@ jobs:
           php-version: '7.4'
           extensions: bcmath, intl, mbstring, mysql
           ini-values: memory_limit=2048M
-          tools: composer
+          tools: composer, cs2pr
           coverage: none
 
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress
 
       - name: Run PHP_CodeSniffer
-        uses: chekalsky/phpcs-action@v1
-        with:
-          enable_warnings: true
-          phpcs_bin_path: vendor/bin/phpcs
+        run: vendor/bin/phpcs -q --report=checkstyle | cs2pr
