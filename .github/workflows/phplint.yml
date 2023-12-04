@@ -21,4 +21,4 @@ jobs:
         with:
           php-version: ${{ matrix.php-versions }}
 
-      - uses: overtrue/phplint@8.0
+      - uses: overtrue/phplint@9.0
