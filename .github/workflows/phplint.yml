@@ -9,7 +9,7 @@ jobs:
 
     strategy:
       matrix:
-        php-versions: ['8.0', '8.1', '8.2']
+        php-versions: [ '8.1', '8.2', '8.3' ]
 
     name: PHP ${{ matrix.php-versions }}
 
@@ -23,6 +23,6 @@ jobs:
 
       - name: PHPLint
         run: |
-          curl -Ls https://github.com/overtrue/phplint/releases/download/4.5.0/phplint.phar -o /usr/local/bin/phplint
+          curl -Ls https://github.com/overtrue/phplint/releases/latest/download/phplint.phar -o /usr/local/bin/phplint
           chmod +x /usr/local/bin/phplint
           /usr/local/bin/phplint -vvv --no-cache
